@@ -1,0 +1,16 @@
+---
+# delete -- we can delete any pod in the namespace, but since we can't list them
+# we must know it's (non-guessable) name ahead of time
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: delete-self
+  namespace: usb
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get    # could be used to scrape nodename from running pod; not actually needed at the moment
+  - delete

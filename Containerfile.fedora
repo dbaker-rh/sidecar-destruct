@@ -1,0 +1,29 @@
+FROM registry.fedoraproject.org/fedora-minimal:34
+
+# FROM registry.fedoraproject.org/fedora:34
+# Replace microdnf with dnf if you want to use the full size image
+
+MAINTAINER Dave Baker <dbaker@redhat.com>
+
+
+# Install kubectl to simply interacting with kube API
+#
+# I note that most public kubectl container images are amd64 only
+# TODO: if I can find a public + verified kubectl, multi-arch image we should use
+#       that and just use a configmap to dump our one simple script into it.
+
+RUN set -x && \
+    microdnf -y update && \
+    microdnf install -y kubernetes-client && \
+    microdnf clean all && \
+    rm -rf /var/cache/yum /var/cache/dnf
+
+COPY start.sh  /
+RUN  chmod 755 /start.sh
+
+# Allow runAsNonRoot: true
+USER 1024
+
+ENTRYPOINT ["/start.sh"]
+
+
