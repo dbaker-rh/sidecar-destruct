@@ -2,16 +2,13 @@
 # - tested and works with the specific devices noted
 #
 
-# Change group of ZWave - Aeotec ZStick 5 - to 1000
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", OWNER="1000", GROUP="1000"
+# Change owner/group to match the runAsUser in the corresponding pods
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", OWNER="1000", GROUP="1000"  # Aeotec ZStick 5
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1cf1", ATTRS{idProduct}=="0030", OWNER="1000", GROUP="1000"  # Conbee II
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", OWNER="1000", GROUP="1000"  # Zigbee zzh
 
-# Change group of Zigbee - Conbee II - to 1000
-SUBSYSTEM=="tty", ATTRS{idVendor}=="1cf1", ATTRS{idProduct}=="0030", OWNER="1000", GROUP="1000"
 
-# Change group of Zigbee - zzh - to 1000
-SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", OWNER="1000", GROUP="1000"
-
-# Create a HARDLINK (TODO: confirm we can't pass a symlink into a pod)
+# Create a HARDLINK to pass into the pod (we cannot pass a symlink, without also passing the target)
 #
 # Note - kernel assigned names can't be reassigned, but we can hardlink
 # We have to "ln -f" and "rm -f".  Note that udev manages re-symlinking if

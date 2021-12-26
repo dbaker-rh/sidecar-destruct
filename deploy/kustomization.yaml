@@ -1,0 +1,12 @@
+namespace: usbtest
+
+
+resources:
+- ./namespace.yaml
+- ./serviceaccount-usbtest.yaml
+- ./deployment.yaml
+- ./clusterrole-usbtest.yaml
+- ./clusterrolebinding-usbtest.yaml
+- ./role-usbtest.yaml
+- ./rolebinding-usbtest.yaml
+

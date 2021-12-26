@@ -1,10 +1,8 @@
 ---
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: delete-self-binding
-  namespace: usb
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -12,5 +10,5 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: usb-watcher
-  namespace: usb
+  namespace: usbtest
 

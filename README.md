@@ -44,6 +44,16 @@ as both zigbee and zwave radios in different USB controllers.
 
 
 
+## Use Cases
+
+Any time you want to schedule, and then unschedule a pod from running
+based on node labels.
+
+* Presence / absence of removable devices
+* Time based labelling (e.g. resources become available for use during non peak hours)
+* ...
+
+
 
 ## Base Images
 

@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: usbtest
-  namespace: usb
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
