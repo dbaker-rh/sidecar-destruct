@@ -1,6 +1,5 @@
 namespace: usbtest
 
-
 resources:
 - ./namespace.yaml
 - ./serviceaccount-usbtest.yaml
