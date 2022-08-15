@@ -64,6 +64,8 @@ echo
 
 # TODO: if verbose.
 echo --- first run ---
+date
+
 echo kubectl get nodes --no-headers -o=custom-columns=NAME:metadata.name   \
         -l "$NODELABEL"="$NODEVALUE" --field-selector metadata.name="$NODEHOST"
 kubectl get nodes --no-headers -o=custom-columns=NAME:metadata.name   \
@@ -73,8 +75,7 @@ kubectl get nodes --no-headers -o=custom-columns=NAME:metadata.name   \
 while true; do
 
    sleep $SLEEPTIME
-
-
+   date
 
    # Run command, capturing how many lines (0 or 1) returned
    FOUND=$( 
