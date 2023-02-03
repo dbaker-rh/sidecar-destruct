@@ -50,7 +50,7 @@ if [ -z "$PODNAME" ]; then
 fi
 
 
-echo 'Self destruct pod starting at' $( date)
+echo "Self destruct pod starting at $(date)"
 
 echo "SLEEPTIME: $SLEEPTIME"
 echo "NAMESPACE: $NAMESPACE"
