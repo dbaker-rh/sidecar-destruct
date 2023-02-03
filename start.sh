@@ -74,7 +74,7 @@ kubectl get nodes --no-headers -o=custom-columns=NAME:metadata.name   \
 
 while true; do
 
-   sleep $SLEEPTIME
+   sleep "$SLEEPTIME"
    date
 
    # Run command, capturing how many lines (0 or 1) returned
@@ -94,8 +94,8 @@ while true; do
    # todo: show labels if verbose
 
    echo 'LABEL missing; self destruct'
-   echo kubectl -n $NAMESPACE delete pod/$PODNAME
-   kubectl -n $NAMESPACE delete pod/$PODNAME
+   echo kubectl -n "$NAMESPACE" delete pod/"$PODNAME"
+   kubectl -n "$NAMESPACE" delete pod/"$PODNAME"
 
 
 done
